@@ -16,8 +16,8 @@
 #define IDR_MAINFRAME_256               129
 #define IDR_CalculatorApplicationTYPE   130
 #define IDS_EDIT_MENU                   306
-#define IDD_CalculatorForm              310
-#define IDD_CalculatorFormMFC           311
+#define IDD_CalculatorDialog            312
+#define IDD_CalculatorDialogMFC         313
 #define IDC_BUTTON0                     1000
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON2                     1002
@@ -32,9 +32,9 @@
 #define IDC_BUTTON_DIVIDE               1011
 #define IDC_BUTTON_MULTIPLY             1012
 #define IDC_BUTTON_MINUS                1013
-#define IDC_BUTTON_DECIMAL              1014
-#define IDC_BUTTON_EQUALS               1015
-#define IDC_BUTTON_PLUS                 1016
+#define IDC_BUTTON_PLUS                 1014
+#define IDC_BUTTON_DECIMAL              1015
+#define IDC_BUTTON_EQUALS               1016
 #define IDC_BUTTON_CLEAR                1017
 #define IDC_MFCBUTTON0                  1020
 #define IDC_MFCBUTTON1                  1021
@@ -58,9 +58,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        313
+#define _APS_NEXT_RESOURCE_VALUE        318
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1038
-#define _APS_NEXT_SYMED_VALUE           312
+#define _APS_NEXT_SYMED_VALUE           314
 #endif
 #endif

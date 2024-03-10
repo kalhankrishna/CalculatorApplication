@@ -39,10 +39,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CalculatorForm.h">
+    <ClInclude Include="CalculatorDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CalculatorFormMFC.h">
+    <ClInclude Include="CalculatorDialogMFC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,10 +62,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalculatorForm.cpp">
+    <ClCompile Include="CalculatorDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalculatorFormMFC.cpp">
+    <ClCompile Include="CalculatorDialogMFC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,5 +95,6 @@
     <None Include="res\CalculatorApplication.rc2">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

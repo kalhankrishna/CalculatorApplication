@@ -10,8 +10,9 @@
 #include "MainFrm.h"
 
 #include "CalculatorApplicationDoc.h"
-#include "CalculatorForm.h"
-#include "CalculatorFormMFC.h"
+#include "CalculatorApplicationView.h"
+#include "CalculatorDialog.h"
+#include "CalculatorDialogMFC.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -111,25 +112,6 @@ BOOL CCalculatorApplicationApp::InitInstance()
 	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
 		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
 
-	// Check the registry value for UseCButton
-	DWORD useCButtonValue = 0;
-	HKEY hKey;
-	if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\CalculatorApplication"), 0, KEY_READ, &hKey) == ERROR_SUCCESS)
-	{
-		DWORD dwSize = sizeof(DWORD);
-		RegQueryValueEx(hKey, _T("UseCButton"), NULL, NULL, reinterpret_cast<LPBYTE>(&useCButtonValue), &dwSize);
-		RegCloseKey(hKey);
-	}
-
-	CRuntimeClass* pRuntimeClass = nullptr;
-	if (useCButtonValue == 1)
-	{
-		pRuntimeClass = RUNTIME_CLASS(CalculatorFormMFC);
-	}
-	else
-	{
-		pRuntimeClass = RUNTIME_CLASS(CalculatorForm);
-	}
 
 	// Register the application's document templates.  Document templates
 	//  serve as the connection between documents, frame windows and views
@@ -138,7 +120,7 @@ BOOL CCalculatorApplicationApp::InitInstance()
 		IDR_MAINFRAME,
 		RUNTIME_CLASS(CCalculatorApplicationDoc),
 		RUNTIME_CLASS(CMainFrame),       // main SDI frame window
-		pRuntimeClass);
+		RUNTIME_CLASS(CCalculatorApplicationView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -158,6 +140,30 @@ BOOL CCalculatorApplicationApp::InitInstance()
 	// The one and only window has been initialized, so show and update it
 	m_pMainWnd->ShowWindow(SW_SHOW);
 	m_pMainWnd->UpdateWindow();
+
+	// Check the registry value for UseCButton
+	DWORD useCButtonValue = 0;
+	HKEY hKey;
+	if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\CalculatorApplication"), 0, KEY_READ, &hKey) == ERROR_SUCCESS)
+	{
+		DWORD dwSize = sizeof(DWORD);
+		RegQueryValueEx(hKey, _T("UseCButton"), NULL, NULL, reinterpret_cast<LPBYTE>(&useCButtonValue), &dwSize);
+		RegCloseKey(hKey);
+	}
+
+	if (useCButtonValue == 1)
+	{
+		CalculatorDialogMFC dlg;
+		dlg.DoModal();
+	}
+	else
+	{
+		CalculatorDialog dlg;
+		dlg.DoModal();
+	}
+
+	
+
 	return TRUE;
 }
 
